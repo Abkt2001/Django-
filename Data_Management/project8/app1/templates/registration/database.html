@@ -1,0 +1,41 @@
+{% extends 'registration/base.html' %}
+{% block formstyle %}
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+    margin-left: 10%;
+
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+{% endblock %}
+
+{% block database %}
+<h1 style="margin-left:40%; margin-top:20px;">Database</h1><br>
+    <table>
+        <tr>
+            <th>ID </th>
+            <th> Name</th>
+            <th>Mail &emsp;</th>
+        </tr>
+        {% for emp in emp %}
+        <tr>
+            <td>{{emp.emp}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.mail}}</td>
+        </tr>
+          {% endfor %}
+    </table><br><br>
+        <a href="{% url 'logout' %}" class="btn btn-primary" style="margin-left:48%;">Logout</a>
+
+
+{% endblock  %}
